@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0h2wueb" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="Process_0nuu2wr" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0m4v2u2</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_0em9war">
+      <bpmn:incoming>Flow_10gvb10</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0m4v2u2" sourceRef="StartEvent_1" targetRef="Activity_0pjs4g2" />
+    <bpmn:sequenceFlow id="Flow_0c7tu32" sourceRef="Activity_0pjs4g2" targetRef="Activity_0z3d2gd" />
+    <bpmn:sequenceFlow id="Flow_0antf2e" sourceRef="Activity_0z3d2gd" targetRef="Gateway_1n8dnp5" />
+    <bpmn:sequenceFlow id="Flow_1ltlvdj" sourceRef="Gateway_1n8dnp5" targetRef="Activity_1x7ojd6" />
+    <bpmn:sequenceFlow id="Flow_19n9ivj" sourceRef="Gateway_1n8dnp5" targetRef="Activity_0skrmhq" />
+    <bpmn:sequenceFlow id="Flow_03xdu10" sourceRef="Activity_0skrmhq" targetRef="Gateway_1mrmrlc" />
+    <bpmn:sequenceFlow id="Flow_1ef0mec" sourceRef="Activity_1x7ojd6" targetRef="Gateway_1mrmrlc" />
+    <bpmn:sequenceFlow id="Flow_10gvb10" sourceRef="Gateway_1mrmrlc" targetRef="Event_0em9war" />
+    <bpmn:userTask id="Activity_0pjs4g2" name="ΣΥΛΛΟΓΉ ΠΡΟΪΌΝΤΩΝ" camunda:assignee="03118803">
+      <bpmn:incoming>Flow_0m4v2u2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0c7tu32</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0z3d2gd" name="ΤΙΜΟΛΌΓΗΣΗ ΠΑΡΑΓΓΕΛΊΑΣ" camunda:assignee="03118803">
+      <bpmn:incoming>Flow_0c7tu32</bpmn:incoming>
+      <bpmn:outgoing>Flow_0antf2e</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1x7ojd6" name="ΠΑΡΆΔΟΣΗ ΣΕ ΜΕΤΑΦΟΡΙΚΉ" camunda:assignee="03118804">
+      <bpmn:incoming>Flow_1ltlvdj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ef0mec</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0skrmhq" name="ΕΝΗΜΈΡΩΣΗ ΠΕΛΆΤΗ" camunda:assignee="03118805">
+      <bpmn:incoming>Flow_19n9ivj</bpmn:incoming>
+      <bpmn:outgoing>Flow_03xdu10</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:parallelGateway id="Gateway_1n8dnp5">
+      <bpmn:incoming>Flow_0antf2e</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ltlvdj</bpmn:outgoing>
+      <bpmn:outgoing>Flow_19n9ivj</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="Gateway_1mrmrlc">
+      <bpmn:incoming>Flow_03xdu10</bpmn:incoming>
+      <bpmn:incoming>Flow_1ef0mec</bpmn:incoming>
+      <bpmn:outgoing>Flow_10gvb10</bpmn:outgoing>
+    </bpmn:parallelGateway>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0nuu2wr">
+      <bpmndi:BPMNEdge id="Flow_0m4v2u2_di" bpmnElement="Flow_0m4v2u2">
+        <di:waypoint x="188" y="237" />
+        <di:waypoint x="250" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c7tu32_di" bpmnElement="Flow_0c7tu32">
+        <di:waypoint x="350" y="237" />
+        <di:waypoint x="440" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0antf2e_di" bpmnElement="Flow_0antf2e">
+        <di:waypoint x="540" y="237" />
+        <di:waypoint x="605" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ltlvdj_di" bpmnElement="Flow_1ltlvdj">
+        <di:waypoint x="630" y="212" />
+        <di:waypoint x="630" y="120" />
+        <di:waypoint x="720" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19n9ivj_di" bpmnElement="Flow_19n9ivj">
+        <di:waypoint x="630" y="262" />
+        <di:waypoint x="630" y="350" />
+        <di:waypoint x="720" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03xdu10_di" bpmnElement="Flow_03xdu10">
+        <di:waypoint x="820" y="350" />
+        <di:waypoint x="910" y="350" />
+        <di:waypoint x="910" y="262" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ef0mec_di" bpmnElement="Flow_1ef0mec">
+        <di:waypoint x="820" y="120" />
+        <di:waypoint x="910" y="120" />
+        <di:waypoint x="910" y="212" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10gvb10_di" bpmnElement="Flow_10gvb10">
+        <di:waypoint x="935" y="237" />
+        <di:waypoint x="1012" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0em9war_di" bpmnElement="Event_0em9war">
+        <dc:Bounds x="1012" y="219" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="219" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yqlbsj_di" bpmnElement="Activity_0pjs4g2">
+        <dc:Bounds x="250" y="197" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0atibl7_di" bpmnElement="Activity_0z3d2gd">
+        <dc:Bounds x="440" y="197" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ukbtrx_di" bpmnElement="Activity_1x7ojd6">
+        <dc:Bounds x="720" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07wijxj_di" bpmnElement="Activity_0skrmhq">
+        <dc:Bounds x="720" y="310" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0nfo5q9_di" bpmnElement="Gateway_1n8dnp5">
+        <dc:Bounds x="605" y="212" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1auit89_di" bpmnElement="Gateway_1mrmrlc">
+        <dc:Bounds x="885" y="212" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
